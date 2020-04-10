@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/extensions
-import covid19ImpactEstimator from '../src/estimator.js';
+import covid19ImpactEstimator from './src/estimator.js';
 
 const form = document.querySelector('form');
 const display = document.querySelector('article');
