@@ -15,13 +15,21 @@ export const calculateAvailableBeds = (totalBeds, severeCases) => {
   return Math.trunc(available - severeCases);
 };
 
+export const calculateEconomicLoss = (
+  infectionsByRequestedTime,
+  avgPopulationEarning,
+  avgEarnings,
+  lockDownDays
+) => Math.trunc((infectionsByRequestedTime * avgPopulationEarning * avgEarnings)
+/ lockDownDays);
+
 export const estimator = (
   {
-    region,
+    region: { avgDailyIncomePopulation, avgDailyIncomeInUSD },
     periodType,
     timeToElapse,
     reportedCases,
-    population,
+    // population,
     totalHospitalBeds
   },
   useCaseFigure
@@ -41,10 +49,26 @@ export const estimator = (
     severeCasesByRequestedTime
   );
   //   Challenge 3
+  const casesForICUByRequestedTime = Math.trunc(
+    0.05 * infectionsByRequestedTime
+  );
+  const casesForVentilatorsByRequestedTime = Math.trunc(
+    0.02 * infectionsByRequestedTime
+  );
+  const dollarsInFlight = calculateEconomicLoss(
+    infectionsByRequestedTime,
+    avgDailyIncomePopulation,
+    avgDailyIncomeInUSD,
+    lockDownDays
+  );
 
   return {
     currentlyInfected,
     infectionsByRequestedTime,
-    severeCasesByRequestedTime
+    severeCasesByRequestedTime,
+    hospitalBedsByRequestedTime,
+    casesForICUByRequestedTime,
+    casesForVentilatorsByRequestedTime,
+    dollarsInFlight
   };
 };
