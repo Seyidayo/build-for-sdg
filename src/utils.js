@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const calculateLockDownDays = (periodType, timeToElapse) => {
   switch (periodType) {
     case 'months':

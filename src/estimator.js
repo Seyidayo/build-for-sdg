@@ -1,4 +1,5 @@
-import { estimator } from './utils';
+// eslint-disable-next-line import/extensions
+import { estimator } from './utils.js';
 
 const covid19ImpactEstimator = (data) => ({
   data,

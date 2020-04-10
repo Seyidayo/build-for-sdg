@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Novelty Estimator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>COVID Novelty Estimator</h1>
+      <p style="font-size: 0.7em;">
+        A program to estimate the effect on the COVID-19 pandemic on healthcare
+        and economy done for the Andela #BuildForSDG challenge
+      </p>
+    </header>
+    <form action="">
+      <fieldset>
+        <legend>Region Information</legend>
+        <label>
+          Region name
+          <input type="text" data-region-name placeholder="Africa" required />
+        </label>
+
+        <label>
+          Population
+          <input type="text" data-population placeholder="66622705" required />
+        </label>
+
+        <label>
+          Average Age
+          <input type="text" data-avg-age placeholder="19.7" required />
+        </label>
+
+        <label>
+          Average Daily Income in USD
+          <input
+            type="text"
+            data-avg-daily-income-usd
+            placeholder="5"
+            required
+          />
+        </label>
+
+        <label>
+          Average Daily Income percentage per population
+          <input
+            type="text"
+            data-avg-daily-income-population
+            placeholder="0.71"
+            required
+          />
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Current Case</legend>
+
+        <div class="d-grid two-grid">
+          <label>
+            Time to elapse
+            <input type="text" data-time-to-elapse placeholder="58" required />
+          </label>
+          <label>
+            Time Type
+            <select name="periodType" data-period-type required>
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Reported Cases
+          <input type="text" data-reported-cases placeholder="674" required />
+        </label>
+
+        <label>
+          Total Hospital Beds
+          <input
+            type="text"
+            data-total-hospital-beds
+            placeholder="1380614"
+            required
+          />
+        </label>
+      </fieldset>
+
+      <button type="submit" data-goestimate>Calculate</button>
+    </form>
+    <article class="hide">
+      <h3>ESTIMATION</h3>
+      <section id="impact">
+        <h5>Impact</h5>
+        <div class="d-grid four-grid">
+          <label>
+            Currently Infected
+            <input type="text" data-impact-currently-infected disabled />
+          </label>
+
+          <label>
+            Number of Infections by Requested Time
+            <input type="text" data-impact-infection disabled />
+          </label>
+          <label>
+            Number of Severe Cases by Requested Time
+            <input type="text" data-impact-severe-cases disabled />
+          </label>
+          <label>
+            Available Beds by Requested Time
+            <input type="text" data-impact-available-beds disabled />
+          </label>
+          <label>
+            ICU cases by Requested Time
+            <input type="text" data-impact-icu-cases disabled />
+          </label>
+          <label>
+            Ventilator Cases by Requested Time
+            <input type="text" data-impact-ventilator-cases disabled />
+          </label>
+          <label>
+            Amount lost by Requested Time(USD)
+            <input type="text" data-impact-dollar-inFlight disabled />
+          </label>
+        </div>
+      </section>
+
+      <section id="severe-impact">
+        <h5>Severe Impact (A worst case scenario)</h5>
+        <div class="d-grid four-grid">
+          <label>
+            Currently Infected
+            <input type="text" data-severe-impact-currently-infected disabled />
+          </label>
+
+          <label>
+            Number of Infections by Requested Time
+            <input type="text" data-severe-impact-infection disabled />
+          </label>
+          <label>
+            Number of Severe Cases by Requested Time
+            <input type="text" data-severe-impact-severe-cases disabled />
+          </label>
+          <label>
+            Available Beds by Requested Time
+            <input type="text" data-severe-impact-available-beds disabled />
+          </label>
+          <label>
+            ICU cases by Requested Time
+            <input type="text" data-severe-impact-icu-cases disabled />
+          </label>
+          <label>
+            Ventilator Cases by Requested Time
+            <input type="text" data-severe-impact-ventilator-cases disabled />
+          </label>
+          <label>
+            Amount lost by Requested Time(USD)
+            <input type="text" data-severe-impact-dollar-inFlight disabled />
+          </label>
+        </div>
+      </section>
+    </article>
+
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
